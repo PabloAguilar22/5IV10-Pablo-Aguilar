@@ -1,48 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <title>Subneteo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@515&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="https://cdn.sstatic.net/Sites/es/img/apple-touch-icon.png?v=7739871010e6">
-    <script src="operacion.js"></script>
-</head>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
 <body>
-   <div class="contenedor">
-       <div class="titulo">
-           <h1>SUBNETEO</h1>
-       </div>
-       <div class="cuerpo">
-           <div class="dato">
-               <label>IP</label>
-               <input type="text" id="txt_ip">
-               <label>MASCARA </label>
-               <input type="text" id="txt_mask"> 
-               <label>N° SUBREDES </label>
-               <input type="number" id="txt_subred">
-               <button id="btn_aceptar" onclick="mtdResolver()">Aceptar</button>
-           </div>
-           <div class="dato" >
 
-           </div>
-       </div>
-       <div class="resultado">
-           <table id="tabladinamica">
-               <thead>
-                   <tr>
-                       <th>N°</th>
-                       <th>Subred</th>
-                       <th colspan="2">Rango de IP</th>
-                       <th>Broadcast</th>
-                   </tr>
-                <tbody>
-                </tbody>
-           </table>
-       </div>
-   </div>
-    
+    <div class="container">
+        <div class="row">
+          <div class="one-half column" style="margin-top: 15%">
+            <h1>Subneteo</h1>
+            
+            <p>IP: <input type="text" id="dip" onkeypress="return ip(event)" maxlength="15"></p>
+            <p>Subredes: <input type="text" id="nsub" onkeypress="return num(event)" maxlength="3"></p>
+            <p>Número de host: <input type="text" id="nhost" onkeypress="return num(event)" maxlength="7"></p>
+            <p><input type="button" value="Subneteo" onclick="validarip()" >
+                <input type="button" value="Subneteo por host" onclick="subneteohost()">
+                <input type="button" value="Binario" onclick="convertirbin()"></p>
+            
+            <div id="texto">                
+                <p id="resultado"></p>
+            </div>
+            <div id="divtable"></div>               
+          </div>
+        </div>
+    </div>   
+
+
+    <script src="js/subneteo.js"></script>
+    <script src="js/validacion.js"></script>
 </body>
 </html>
-
